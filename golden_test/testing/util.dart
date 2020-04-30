@@ -38,3 +38,12 @@ Future<void> setUpBinding(
 String pathToGoldens(String file) {
   return path.join('goldens', file);
 }
+
+Future<void> matchesGolden(Finder finder, String file) async {
+  final filePath = pathToGoldens(file);
+  // Loading of images is flaky in goldens, even when precaching images. Hack
+  // around for now is to run `matchesGoldenFile` twice.
+  // https://github.com/flutter/flutter/issues/53009
+  await matchesGoldenFile(filePath).matchAsync(finder);
+  await expectLater(finder, matchesGoldenFile(filePath));
+}

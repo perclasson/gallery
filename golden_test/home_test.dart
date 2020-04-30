@@ -23,9 +23,9 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      await expectLater(
+      await matchesGolden(
         find.byType(GalleryApp),
-        matchesGoldenFile(pathToGoldens('home_page_mobile_light.png')),
+        'home_page_mobile_light.png',
       );
     }, skip: !Platform.isMacOS);
 
@@ -38,9 +38,9 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      await expectLater(
+      await matchesGolden(
         find.byType(GalleryApp),
-        matchesGoldenFile(pathToGoldens('home_page_mobile_dark.png')),
+        'home_page_mobile_dark.png',
       );
     }, skip: !Platform.isMacOS);
   });
@@ -55,9 +55,9 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      await expectLater(
+      await matchesGolden(
         find.byType(GalleryApp),
-        matchesGoldenFile(pathToGoldens('home_page_desktop_light.png')),
+        'home_page_desktop_light.png',
       );
     }, skip: !Platform.isMacOS);
 
@@ -74,9 +74,9 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      await expectLater(
+      await matchesGolden(
         find.byType(GalleryApp),
-        matchesGoldenFile(pathToGoldens('home_page_desktop_dark.png')),
+        'home_page_desktop_dark.png',
       );
     }, skip: !Platform.isMacOS);
   });
